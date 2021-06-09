@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> Update Page </head>
+
+<title> This is Update Page </title>
+<body>
+<center>
+        <h1>book record</h1>
+    <h2>book id {{Book.id}}</h2>
+    </hr>
+<form method="post" action="/Update/{{Book.id}}">
+{% csrf_token %}
+<table border="1">
+
+<tr>
+    <td>Name</td>
+    <td><input type="text" name="name" value="{{Book.name}}"></td>
+</tr>
+<tr>
+    <td>Author</td>
+    <td><input type="text" name="author" value="{{Book.author}}"></td>
+</tr>
+    <tr>
+    <td>Email_Id</td>
+    <td><input type="text" name="email" value="{{Book.email}}"></td>
+</tr>
+
+</table>
+    <input type="submit" value="Update"/>
+    <td><a href="{% url 'index' %}"/>See Book Record</td>
+    <hr/>
+
+{% if messages %}
+{% for result in messages %}
+<b>{{result}}</b>
+{% endfor %}
+{% endif %}
+</form>
+
+</center>
+</body>
+
+</html>
